@@ -59,7 +59,7 @@ public class VersionTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = {"0.4.0", "2.1.0", "1.2.5"})
+  @ValueSource(strings = {"0.4.0", "2.1.0", "5.2.5"})
   @DisplayName("inferScope fails for invalid increment")
   public void inferScopeFail(String afterStr) {
     var after = Version.valueOf(afterStr);
