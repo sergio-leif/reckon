@@ -49,11 +49,11 @@ public enum Scope {
     var major = after.getVersion().getMajorVersion() - before.getVersion().getMajorVersion();
     var minor = after.getVersion().getMinorVersion() - before.getVersion().getMinorVersion();
     var patch = after.getVersion().getPatchVersion() - before.getVersion().getPatchVersion();
-    if (major == 1 && after.getVersion().getMinorVersion() == 0 && after.getVersion().getPatchVersion() == 0) {
+    if (major >= 1 && after.getVersion().getMinorVersion() == 0 && after.getVersion().getPatchVersion() == 0) {
       return Optional.of(Scope.MAJOR);
-    } else if (major == 0 && minor == 1 && after.getVersion().getPatchVersion() == 0) {
+    } else if (major == 0 && minor >= 1 && after.getVersion().getPatchVersion() == 0) {
       return Optional.of(Scope.MINOR);
-    } else if (major == 0 && minor == 0 && patch == 1) {
+    } else if (major == 0 && minor == 0 && patch >= 1) {
       return Optional.of(Scope.PATCH);
     } else if (major == 0 && minor == 0 && patch == 0) {
       return Optional.empty();
